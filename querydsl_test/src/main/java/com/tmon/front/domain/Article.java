@@ -3,6 +3,8 @@ package com.tmon.front.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -11,13 +13,11 @@ import javax.persistence.Table;
 public class Article {
 
 	@Id
-	@Column
 	private int articleNo;
-	@Column
-	private int memberSeq;
-	@Column
+	@JoinColumn(name="memberSeq")
+	@OneToOne
+	private Member member;
 	private String title;
-	@Column
 	private String content;
 	
 	public Article(){
@@ -25,7 +25,6 @@ public class Article {
 	public Article(int articleNo, int memberSeq, String title, String content) {
 		super();
 		this.articleNo = articleNo;
-		this.memberSeq = memberSeq;
 		this.title = title;
 		this.content = content;
 	}
@@ -34,12 +33,6 @@ public class Article {
 	}
 	public void setArticleNo(int articleNo) {
 		this.articleNo = articleNo;
-	}
-	public int getMemberSeq() {
-		return memberSeq;
-	}
-	public void setMemberSeq(int memberSeq) {
-		this.memberSeq = memberSeq;
 	}
 	public String getTitle() {
 		return title;
@@ -55,7 +48,7 @@ public class Article {
 	}
 	@Override
 	public String toString() {
-		return "Article [articleNo=" + articleNo + ", memberSeq=" + memberSeq
+		return "Article [articleNo=" + articleNo + ", member=" + member
 				+ ", title=" + title + ", content=" + content + "]";
 	}
 	
