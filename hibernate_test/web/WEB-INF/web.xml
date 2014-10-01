@@ -13,8 +13,7 @@
 	-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-<!--         <param-value>classpath:spring/application-config.xml</param-value> -->
-        <param-value>classpath:spring/application-config2.xml</param-value>
+        <param-value>classpath:spring/application-config.xml</param-value>
     </context-param>
 
     <listener>
