@@ -1,4 +1,4 @@
-package com.tmon.front;
+package com.tmon.front.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

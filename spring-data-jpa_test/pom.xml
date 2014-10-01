@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.tmon</groupId>
-  <artifactId>hibernate_test</artifactId>
+  <groupId>org.tmon</groupId>
+  <artifactId>spring-data-jpa_test</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   
     <properties>
 
 		<!-- Generic properties -->
-		<java.version>1.8</java.version>
+		<java.version>1.6</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		
@@ -20,6 +20,9 @@
 
 		<!-- Spring -->
 		<spring-framework.version>4.1.0.RELEASE</spring-framework.version>
+
+		<!-- Hibernate / JPA -->
+		<hibernate.version>4.2.1.Final</hibernate.version>
 
 		<!-- Test -->
 		<junit.version>4.11</junit.version>
@@ -60,13 +63,14 @@
 			<artifactId>spring-tx</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
-		
+
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>4.3.6.Final</version>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
 		</dependency>
+
 		
 		<!-- Test Artifacts -->
 		<dependency>
@@ -81,6 +85,8 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- hsqldb -->
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
@@ -91,6 +97,8 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
+		
+		<!-- spring data jpa -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
