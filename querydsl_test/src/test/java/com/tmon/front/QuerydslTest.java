@@ -29,7 +29,7 @@ public class QuerydslTest {
 		QArticle article = QArticle.article;
 		QMember member = QMember.member;
 		
-		List<Article> list = query.from(article).innerJoin(article.member, member).limit(3).list(article);
+		List<Article> list = query.from(article).innerJoin(article.member, member).list(article);
 		for(Article a : list){
 			System.out.println(a);
 		}
