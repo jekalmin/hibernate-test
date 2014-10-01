@@ -1,5 +1,7 @@
 package com.tmon.front;
 
+import java.util.Iterator;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +34,9 @@ public class JpaTest {
 	@Test
 	public void list(){
 		Iterable<Article> iter = repository.findAll();
-		System.out.println(iter);
+		for(Article article : iter){
+			System.out.println(article);
+		}
 	}
 	
 	@Test
