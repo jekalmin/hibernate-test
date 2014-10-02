@@ -23,22 +23,22 @@
 	<!-- 하이버네이트 설정 -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="mappingLocations">
+		<property name="mappingLocations"> <!-- xml 기반 엔티티 등록 -->
 			<list>
 				<value>classpath:hibernate/Customer.hbm.xml</value>
 			</list>
 		</property>
-		<property name="annotatedClasses">
+		<property name="annotatedClasses"> <!-- 어노테이션 기반 엔티티 등록 -->
 			<list>
 				<value>com.tmon.front.domain.Article</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
-		        <prop key="hibernate.connection.pool_size">1</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop> <!-- hsql에 있는 마지막 연결이 끊어지면 데이터베이스 shutdown 하는 플래그 -->
+		        <prop key="hibernate.connection.pool_size">1</prop> <!-- 커넥션 풀 개수 -->
 		        <prop key="hibernate.connection.shutdown">true</prop> <!-- For a HSQL in-memory database, this is required --> 
-		        <prop key="hibernate.show_sql">true</prop>
+		        <prop key="hibernate.show_sql">true</prop> <!-- db에 요청한 sql 출력 -->
 		        <!--  prop key="hibernate.hbm2ddl.auto">create</prop--> <!-- Drop and re-create the database schema on startup -->
 			</props>
 		</property>

@@ -2,13 +2,14 @@ package com.tmon.front;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -18,10 +19,11 @@ import com.tmon.front.domain.Customer;
 @ContextConfiguration(locations={"classpath:/spring/application-config.xml"})
 public class HibernateTest {
 
-	@Autowired
+	@Resource
 	SessionFactory factory;
 	Session session;
 	
+
 	@Before
 	public void before(){
 		session = factory.openSession();
@@ -45,7 +47,9 @@ public class HibernateTest {
 		System.out.println(c2);
 	}
 	
+	
 	@Test
+	@SuppressWarnings("rawtypes")
 	public void list(){
 //		SQLQuery query = session.createSQLQuery("select * from Customer");
 		Query query = session.createQuery("from Customer");

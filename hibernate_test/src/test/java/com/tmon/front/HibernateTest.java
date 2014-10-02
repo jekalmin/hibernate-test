@@ -3,6 +3,8 @@ package com.tmon.front;
 import java.lang.reflect.Field;
 import java.util.List;
 
+import javax.persistence.GeneratedValue;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,6 +27,9 @@ public class HibernateTest {
 	SessionFactory factory;
 	Session session;
 	
+	/**
+	 * 하이버네이트 설정 코드
+	 */
 	@Before
 	public void before(){
 		Configuration configuration = new Configuration().configure("hibernate/hibernate.cfg.xml");
@@ -39,6 +44,11 @@ public class HibernateTest {
 		factory.close();
 	}
 	
+	/**
+	 * 엔티티에 set 메소드가 필요 없는 이유(private 필드 접근)
+	 * private 필드에 접근 하는 법
+	 * @throws Exception
+	 */
 	@Test
 	public void test() throws Exception{
 		Article article = new Article(1,"1","1");
@@ -50,6 +60,9 @@ public class HibernateTest {
 		
 	}
 	
+	/**
+	 * 고객 등록
+	 */
 	@Test
 	public void insert(){
 		Customer c1 = new Customer();
@@ -60,6 +73,10 @@ public class HibernateTest {
 		
 	}
 	
+	/**
+	 * 글 등록
+	 * articleNo는 @GeneratedValue 어노테이션에 의해 자동 생성
+	 */
 	@Test
 	public void insertArticle(){
 		
@@ -74,13 +91,24 @@ public class HibernateTest {
 		list();
 	}
 	
+	/**
+	 * 고객 상세 정보
+	 */
 	@Test
 	public void detail(){
 		Customer c1 = (Customer)session.get(Customer.class, 1);
 		System.out.println(c1);
 	}
 	
+	
+
+	/**
+	 * 리스트 :
+	 * HQL(Hibernate Query Language)를 사용한 리스트 가져오기
+	 * "from Article" 에서 Article은 클래스명과 동일해야됨 (대소문자구분)
+	 */
 	@Test
+	@SuppressWarnings("rawtypes")
 	public void list(){
 //		SQLQuery query = session.createSQLQuery("select * from Customer");
 		Query query = session.createQuery("from Article");
@@ -90,6 +118,9 @@ public class HibernateTest {
 		}
 	}
 	
+	/**
+	 * 고객 정보 수정
+	 */
 	@Test
 	public void update(){
 		list();
@@ -99,10 +130,13 @@ public class HibernateTest {
 		session.update(c1);
 		list();
 	}
-	
+
+	/**
+	 * 고객 정보 삭제
+	 */
 	@Test
 	public void delete(){
-		Customer c2 = (Customer)session.load(Customer.class, 3);
+		Customer c2 = (Customer)session.load(Customer.class, 2);
 		session.delete(c2);
 		session.flush();
 		

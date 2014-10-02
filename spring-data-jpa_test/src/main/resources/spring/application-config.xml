@@ -21,8 +21,11 @@
 	
 	
 	<!-- spring data jpa 설정 -->
+	
+	<!-- jpa repository가 위치한 패키지 경로 등록 -->
 	<jpa:repositories base-package="com.tmon.front.repository" entity-manager-factory-ref="entityManagerFactory"/>
 	
+	<!-- 하이버네이트의 SessionFactory 에 상응하는 jpa의 EntityManagerFactory 등록 -->
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />

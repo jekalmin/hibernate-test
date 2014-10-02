@@ -6,6 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
+/**
+ * 어노테이션 기반의 하이버네이트 엔티티
+ * @author jekalmin
+ *
+ */
 @Entity
 @Table
 public class Article {
@@ -24,6 +29,7 @@ public class Article {
 		this.title = title;
 		this.content = content;
 	}
+	@SuppressWarnings("unused")
 	private int getArticleNo() {
 		return articleNo;
 	}

@@ -1,5 +1,11 @@
 package com.tmon.front.domain;
 
+/**
+ * xml 기반의 하이버네이트 엔티티
+ * xml 경로 : src/main/resources/hibernate/Customer.hbm.xml
+ * @author jekalmin
+ *
+ */
 public class Customer {
 
 	private int seq;

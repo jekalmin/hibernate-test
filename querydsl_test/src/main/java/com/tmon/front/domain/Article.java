@@ -24,6 +24,36 @@ public class Article {
 		return "Article [articleNo=" + articleNo + ", member=" + member
 				+ ", title=" + title + ", content=" + content + "]";
 	}
+
+	public int getArticleNo() {
+		return articleNo;
+	}
+
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	
 	
 	
 }
