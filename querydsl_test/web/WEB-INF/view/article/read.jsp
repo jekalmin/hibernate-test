@@ -7,6 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-${article}
+${article}<br/>
+<a href="/article/list" id="list">리스트</a>
+<script type="text/javascript" src="/js/urlutil.js"></script>
+<script type="text/javascript">
+	var urlParam = UrlUtil.parse(location.href);
+	list.onclick = function(){
+		delete urlParam.articleNo;
+		location.href = this.pathname + UrlUtil.stringify(urlParam);
+		return false;
+	}
+</script>
 </body>
 </html>

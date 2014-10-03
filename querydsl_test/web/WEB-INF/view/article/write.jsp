@@ -7,7 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="post" action="/article/writeAction">
+<form method="post" action="/article/save">
+회원번호 :
+<select name="memberSeq">
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+</select>
 제목 : <input type="text" name="title"/>
 내용 : <input type="text" name="content"/>
 <input type="submit" value="등록"/>

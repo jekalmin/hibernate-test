@@ -3,8 +3,6 @@ package com.tmon.front;
 import java.lang.reflect.Field;
 import java.util.List;
 
-import javax.persistence.GeneratedValue;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

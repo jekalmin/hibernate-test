@@ -52,7 +52,7 @@ public class QuerydslTest {
 	@Test
 	public void list(){
 		QArticle qArticle = QArticle.article;
-		Iterable<Article> article = articleRepository.findAll(qArticle.content.eq("ㅋㅋㅋ1"));
+		Iterable<Article> article = articleRepository.findAll();
 		System.out.println(article);
 	}
 	
@@ -68,6 +68,17 @@ public class QuerydslTest {
 			System.out.println(article);
 		}
 		
+	}
+	
+	@Test
+	public void save(){
+		Member member = new Member(1, "2", "aaa", "bbb");
+		Article article = new Article();
+		article.setContent("aaa");
+		article.setMember(member);
+		article.setTitle("bbbbbbbb");
+		articleRepository.save(article);
+		System.out.println(articleRepository.findAll());
 	}
 
 }

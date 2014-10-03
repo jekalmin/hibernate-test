@@ -1,9 +1,10 @@
 package com.tmon.front.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -12,9 +13,10 @@ import javax.persistence.Table;
 public class Article {
 
 	@Id
+	@GeneratedValue
 	private int articleNo;
 	@JoinColumn(name="memberSeq")
-	@OneToOne
+	@ManyToOne
 	private Member member;
 	private String title;
 	private String content;
