@@ -18,6 +18,10 @@
 		<jstl.version>1.2</jstl.version>
 		<servlet.version>2.5</servlet.version>
 		
+		<!-- Logging -->
+		<logback.version>1.0.13</logback.version>
+		<slf4j.version>1.7.5</slf4j.version>
+		
 
 		<!-- Spring -->
 		<spring-framework.version>4.1.0.RELEASE</spring-framework.version>
@@ -63,6 +67,14 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${spring-framework.version}</version>
+		</dependency>
+		
+		<!-- Logging with SLF4J & LogBack -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<!-- Hibernate -->
@@ -119,11 +131,6 @@
 			<groupId>com.mysema.querydsl</groupId>
 			<artifactId>querydsl-apt</artifactId>
 			<version>3.4.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.7</version>
 		</dependency>
 	</dependencies>	
 	<build>

@@ -3,31 +3,31 @@
 See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-through-the-java-loggers/ -->
 <configuration scan="true" scanPeriod="30 seconds">
 
-    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
-        <resetJUL>true</resetJUL>
-    </contextListener>
+<!--     <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator"> -->
+<!--         <resetJUL>true</resetJUL> -->
+<!--     </contextListener> -->
 
     <!-- To enable JMX Management -->
     <jmxConfigurator/>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS}[%level][%logger{36}] - %msg%n</pattern>
-<!--             <pattern>%d{HH:mm:ss.SSS}[%-5level][%logger{36}] - %msg%n</pattern>   -->
+			<pattern>%d{HH:mm:ss.SSS}[%level][%logger.%M\(%line\)] - %msg%n</pattern>
         </encoder>
-        
     </appender>
 
    <!-- Uncomment and add your logger here: -->
-    <logger name="org.springframework" level="info">
+<!--     <logger name="org.springframework" level="info" additivity="false"> -->
+<!--     	<appender-ref ref="console"/> -->
+<!--     </logger> -->
+    <logger name="org.hibernate.SQL" level="debug" additivity="false">
     	<appender-ref ref="console"/>
     </logger>
-    <logger name="org.hibernate" level="debug">
+    <logger name="com.tmon" level="debug" additivity="false">
     	<appender-ref ref="console"/>
     </logger>
          
-    <root level="debug">
+    <root level="error">
         <appender-ref ref="console"/>
-        <appender-ref ref="ConversionPattern"/>
     </root>
 </configuration>
