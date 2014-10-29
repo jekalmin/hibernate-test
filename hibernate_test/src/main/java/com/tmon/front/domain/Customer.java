@@ -15,9 +15,8 @@ public class Customer {
 	
 	public Customer(){}
 	
-	public Customer(int seq, String id, String password, String name) {
+	public Customer(String id, String password, String name) {
 		super();
-		this.seq = seq;
 		this.id = id;
 		this.password = password;
 		this.name = name;
